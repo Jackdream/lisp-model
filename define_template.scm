@@ -1,0 +1,13 @@
+(DEFINE (SUM TERM A NEXT B)
+	(IF (> A B)
+	    0
+	    (+ (TERM A)
+	       (SUM TERM (NEXT A) NEXT B))))
+;(DEFINE (SUM-INT A B)
+;	(DEFINE (IDENTIFY A) A)
+;	(SUM IDENTIFY A 1+ B))
+
+(DEFINE (SUM-INT A B)
+	(SUM (LAMBDA(X) X) A 1+ B))
+
+(SUM-INT 1 5)
